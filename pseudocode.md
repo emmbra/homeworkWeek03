@@ -47,3 +47,9 @@ Approach 3: user story (refer to classwork pseudo code)
             -could write to not randomize and to include elements from each array.
         c. passwordChecker - needed if passwordAssembler is randomized
         d. generate finalUserPassword and send to user
+
+
+  var lowerChars = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+  var upperChars = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+  var specialChars = [" ", "!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", ":", ";", "<", "=", ">", "?", "@", "[", "/", "]", "^", "_", "`", "{", "|" "}", "~", "\\", "\""]
+  var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]

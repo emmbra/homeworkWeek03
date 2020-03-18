@@ -1,57 +1,77 @@
-// Arrays
 
-var lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-var upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
-var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-var specialChars = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", ":", ";", "<", "=", ">", "?", "@", "[", "/", "]", "^", "_", "`", "{", "|" "}", "~", "\"",  ]
-var pwLength
-var pwCriteria
-var userPassword = ""
-var finalUserPassword =
+function generatePassword() {
 
-// ", \, quote and blckslash, how to enter into array?
+  //Password Length: need variable and prompt for user
+  var pwLength = parseInt(prompt("How many characters would you like in your password? Please select a number between 8 - 128."));
 
-function pwGenerator(){
-  var pwLength = prompt("How long do you want your password? Please enter a number between 8 - 128.");
-  // is this loop written correctly? won't accept 128
-  for (pwLength = 0; pwLength < 8 || pwLength > 128; pwLength++) {
-    var pwLength = prompt("You fool! Enter a password length between 8 - 128.");
+  //set loop if user enters a value not in the range of 8 - 128.
+  while (pwLength < 8 || pwLength > 128 || isNaN(pwLength)) {
+    alert("Try again ya shmuck! Please select a number between 8 - 128.");
+    pwLength = parseInt(prompt("How many characters would you like in your password? Please select a number between 8 - 128."));
   }
 
-  var lowerCase = confirm("For your password, do you want to include lowercase characters? e.g. a, b, c");
-  if (lowerCase === true) {
-    var userPassword = Math.floor(Math.random() * lowerCase.length);
-  }
-  else (lowerCase === false) {
+  //prompt user for which characters they want in the random password. BOOLEAN ANSWERS.
+  var lowerBoolean = confirm("Would you like lower case characters in your password? e.g. a, b, c, etc.");
+  var upperBoolean = confirm("Would you like upper case characters in your password? e.g. A, B, C, etc.");
+  var specialBoolean = confirm("Would you like special characters in your password? e.g. @, !, #, etc.");
+  var numbersBoolean = confirm("Would you like numbers in your password? e.g. 1, 2, 3, etc.");
 
-  }
-
-  var upperCase = confirm("For your password, do you want to include uppercase characters? e.g. A, B, C");
-  if (upperCase === true) {
-    var userPassword = Math.floor(Math.random() * upperCase.length);
-  }
-  else (upperCase === false) {
-    
+  //What if user answers no to all password criteria?
+  if (lowerBoolean === false && upperBoolean === false && specialBoolean === false && numbersBoolean === false) {
+    pwFinal = "Dude, you have to pick some password criteria! Please try again and select password critera this time.";
+    return pwFinal;
   }
 
-  var numbers = confirm("For your password, do you want to include numbers? e.g. 1, 2, 3")
-  if (numbers === true) {
-    var userPassword = Math.floor(Math.random() * numbers.length);
+  //Establish the datasets the generatePassword will select from.
+
+  var lowerChars = "abcdefghijklmnopqrstuvwxyz";
+  var upperChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  var specialChars = "~!@#$%^&*()[]{}.?<>'/\"\\";
+  var numbers = "1234567890";
+
+  //Generate random selections from each dataset.
+  function genLower() {
+    return lowerChars.charAt(Math.floor(Math.random() * lowerChars.length));
   }
-  else (numbers === false) {
-    
+  function genUpper() {
+    return upperChars.charAt(Math.floor(Math.random() * upperChars.length));
+  }
+  function genSpecial() {
+    return specialChars.charAt(Math.floor(Math.random() * specialChars.length));
+  }
+  function genNumbers() {
+    return numbers.charAt(Math.floor(Math.random() * numbers.length));
   }
 
-  var specialChars = confirm("For your password, do you want to include special characters? e.g. @, #, $")
-  if (specialChars === true) {
-    var userPassword = Math.floor(Math.random() * specialChars.length);
+  //Collating the random selections from random selection functions.
+  function genCollate() {
+    var collate = [genLower(), genUpper(), genSpecial(), genNumbers()];
+    return collate[Math.floor(Math.random() * 4)];
   }
-  else (specialChars === false) {
-    
+
+  //Establish blank final password variable.
+  var pwFinal = "";
+
+  //Build the pwFinal with a loop up to the password length established by user.
+  for (var i = 0; i < pwLength; i++) {
+    var addChar = genCollate();
+
+    //Establish while loop if password criteria filtered out by user.
+    while (
+      (lowerBoolean === false && lowerChars.indexOf(addChar) !== -1) ||
+      (upperBoolean === false && upperChars.indexOf(addChar) !== -1) ||
+      (specialBoolean === false && specialChars.indexOf(addChar) !== -1) ||
+      (numbersBoolean === false && numbers.indexOf(addChar) !== -1)
+    ) {
+      var addChar = genCollate();
+    }
+
+    pwFinal = pwFinal + addChar
   }
-var userPassword += lowerCase + upperCase + numbers + specialChars
+
+  return pwFinal;
+
 }
-
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
