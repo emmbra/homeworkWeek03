@@ -6,7 +6,7 @@ Approach 1: define all variables
         special characters
         numbers
 
-    for reach array, validate if user wants them included in password
+    for each array, validate if user wants them included in password
 
     boolean (T/F) for each array
 
