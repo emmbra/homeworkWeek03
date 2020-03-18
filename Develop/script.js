@@ -9,7 +9,7 @@
 // var userPassword = []
 // var finalUserPassword =
 
-function promptMe(){
+function pwGenerator(){
   var pwLength = prompt("How long do you want your password? Please enter a number between 8 - 128.");
   var lowerCase = confirm("For your password, do you want to include lowercase characters? e.g. a, b, c");
   var lowerCase = confirm("For your password, do you want to include uppercase characters? e.g. A, B, C");
