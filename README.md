@@ -30,7 +30,7 @@ Difficulties included:
 * Nesting functions within functions.
 
 ## Screenshot
-![Image of Password Generator](https://github.com/emmbra/homeworkWeek2/blob/master/Assets/Images/screenshot-about-me.png)
+![Image of Password Generator](https://github.com/emmbra/homeworkWeek3/blob/master/Assets/Images/screenshot-passwordGenerator.png)
 
 ## Credits
 
