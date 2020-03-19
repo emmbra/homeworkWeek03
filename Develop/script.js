@@ -2,19 +2,20 @@
 function generatePassword() {
 
   //Password Length: need variable and prompt for user
+  //parseInt is a function that parses a string and returns an integer
   var pwLength = parseInt(prompt("How many characters would you like in your password? Please select a number between 8 - 128."));
 
-  //set loop if user enters a value not in the range of 8 - 128.
+  //set while loop if user enters a value not in the range of 8 - 128. will run until condition is false.
   while (pwLength < 8 || pwLength > 128 || isNaN(pwLength)) {
     alert("Try again ya shmuck! Please select a number between 8 - 128.");
     pwLength = parseInt(prompt("How many characters would you like in your password? Please select a number between 8 - 128."));
   }
 
   //prompt user for which characters they want in the random password. BOOLEAN ANSWERS.
-  var lowerBoolean = confirm("Would you like lower case characters in your password? e.g. a, b, c, etc.");
-  var upperBoolean = confirm("Would you like upper case characters in your password? e.g. A, B, C, etc.");
-  var specialBoolean = confirm("Would you like special characters in your password? e.g. @, !, #, etc.");
-  var numbersBoolean = confirm("Would you like numbers in your password? e.g. 1, 2, 3, etc.");
+  var lowerBoolean = confirm("Would you like lower case characters in your password? a, b, c, etc.");
+  var upperBoolean = confirm("Would you like upper case characters in your password? A, B, C, etc.");
+  var specialBoolean = confirm("Would you like special characters in your password? @, !, #, etc.");
+  var numbersBoolean = confirm("Would you like numbers in your password? 1, 2, 3, etc.");
 
   //What if user answers no to all password criteria?
   if (lowerBoolean === false && upperBoolean === false && specialBoolean === false && numbersBoolean === false) {
