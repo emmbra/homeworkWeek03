@@ -18,7 +18,7 @@ function generatePassword() {
 
   //What if user answers no to all password criteria?
   if (lowerBoolean === false && upperBoolean === false && specialBoolean === false && numbersBoolean === false) {
-    pwFinal = "Dude, you have to pick some password criteria! Please try again and select password critera this time.";
+    pwFinal = "Stop saying no to everything! Please try again and select password critera this time.";
     return pwFinal;
   }
 
