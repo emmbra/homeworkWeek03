@@ -1,48 +1,41 @@
-# 03 JavaScript: Password Generator
+# JavaScript: Random Password Generator
 
-Create an application that generates a random password based on user-selected criteria. This app will run in the browser and feature dynamically updated HTML and CSS powered by your JavaScript code. It will also feature a clean and polished user interface and be responsive, ensuring that it adapts to multiple screen sizes.
+[JavaScript: Random Password Generator](https://emmbra.github.io/homeworkWeek3/Develop/index.html)
 
-If you are unfamiliar with special characters, take a look at [some examples](https://www.owasp.org/index.php/Password_special_characters).
+## Description
+Created an application that randomly generates a random password based on user selected criteria:
 
-## User Story
+* Length: 8 - 128 characters.
+* Include lowercase characters? a, b, c, etc.
+* Include uppercase characters? A, b, C, etc.
+* Include special characters? !, @, #, etc.
+* Include numbers? 1, 2, 3, etc.
 
-```
-AS AN employee with access to sensitive data
-I WANT to randomly generate a password that meets certain criteria
-SO THAT I can create a strong password that provides greater security
-```
+## Technologies
 
-## Acceptance Criteria
+* HTML5
+* CSS3
+* JavaScript
+* Bootstrap CDN
 
-```
-GIVEN I need a new, secure password
-WHEN I click the button to generate a password
-THEN I am presented with a series of prompts for password criteria
-WHEN prompted for password criteria
-THEN I select which criteria to include in the password
-WHEN prompted for the length of the password
-THEN I choose a length of at least 8 characters and no more than 128 characters
-WHEN prompted for character types to include in the password
-THEN I choose lowercase, uppercase, numeric, and/or special characters
-WHEN I answer each prompt
-THEN my input should be validated and at least one character type should be selected
-WHEN all prompts are answered
-THEN a password is generated that matches the selected criteria
-WHEN the password is generated
-THEN the password is either displayed in an alert or written to the page
-```
+## Challenges
 
-The following image demonstrates the application functionality:
+In total this project took about 15 hours to build including all the time put into research and trial & error.
 
-![password generator demo](./Assets/03-javascript-homework-demo.png)
+Difficulties included:
 
-## Review
+* Learning new loops: while loop.
+* Learning new functions: parseInt.
+* Learning new methods: charAt().
+* Nesting functions within functions.
 
-You are required to submit the following for review:
+## Screenshot
+![Image of Password Generator](https://github.com/emmbra/homeworkWeek2/blob/master/Assets/Images/screenshot-about-me.png)
 
-* The URL of the deployed application.
+## Credits
 
-* The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
+Thank you to Berkeley Coding Bootcamp, my instructor Emmanual Jucaban, and my TAs Musa Akbari and Sergio Di Martino for answering all my questions and helping me along the way.
 
-- - -
-© 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
+## License
+
+This project is licensed under the MIT License: [https://choosealicense.com/licenses/mit/](https://choosealicense.com/licenses/mit)
