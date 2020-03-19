@@ -1,11 +1,19 @@
+//Establish the datasets the generatePassword function will select from.
+var lowerChars = "abcdefghijklmnopqrstuvwxyz";
+var upperChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var specialChars = "~!@#$%^&*()[]{}.?<>'/\"\\";
+var numbers = "1234567890";
 
 function generatePassword() {
+  //Establish blank final password variable.
+  var pwFinal = "";
 
   //Password Length: need variable and prompt for user
-  //parseInt is a function that parses a string and returns an integer
+  //parseInt is a function that parses a string and returns an integer. Functions same as Number.
   var pwLength = parseInt(prompt("How many characters would you like in your password? Please select a number between 8 - 128."));
 
-  //set while loop if user enters a value not in the range of 8 - 128. will run until condition is false.
+  //if statement could work here vs. while loop.
+  //set while loop if user enters a value not in the range of 8 - 128 or NaN. will run until condition is false.
   while (pwLength < 8 || pwLength > 128 || isNaN(pwLength)) {
     alert("Try again ya shmuck! Please select a number between 8 - 128.");
     pwLength = parseInt(prompt("How many characters would you like in your password? Please select a number between 8 - 128."));
@@ -18,17 +26,11 @@ function generatePassword() {
   var numbersBoolean = confirm("Would you like numbers in your password? 1, 2, 3, etc.");
 
   //What if user answers no to all password criteria?
-  if (lowerBoolean === false && upperBoolean === false && specialBoolean === false && numbersBoolean === false) {
+  //! bang operator = false
+  if (!lowerBoolean && !upperBoolean && !specialBoolean && !numbersBoolean) {
     pwFinal = "Stop saying no to everything! Please try again and select password critera this time.";
     return pwFinal;
   }
-
-  //Establish the datasets the generatePassword will select from.
-
-  var lowerChars = "abcdefghijklmnopqrstuvwxyz";
-  var upperChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  var specialChars = "~!@#$%^&*()[]{}.?<>'/\"\\";
-  var numbers = "1234567890";
 
   //Generate random selections from each dataset.
   function genLower() {
@@ -50,19 +52,16 @@ function generatePassword() {
     return collate[Math.floor(Math.random() * 4)];
   }
 
-  //Establish blank final password variable.
-  var pwFinal = "";
-
   //Build the pwFinal with a loop up to the password length established by user.
   for (var i = 0; i < pwLength; i++) {
     var addChar = genCollate();
 
     //Establish while loop if password criteria filtered out by user.
     while (
-      (lowerBoolean === false && lowerChars.indexOf(addChar) !== -1) ||
-      (upperBoolean === false && upperChars.indexOf(addChar) !== -1) ||
-      (specialBoolean === false && specialChars.indexOf(addChar) !== -1) ||
-      (numbersBoolean === false && numbers.indexOf(addChar) !== -1)
+      (!lowerBoolean && lowerChars.indexOf(addChar) !== -1) ||
+      (!upperBoolean && upperChars.indexOf(addChar) !== -1) ||
+      (!specialBoolean && specialChars.indexOf(addChar) !== -1) ||
+      (!numbersBoolean && numbers.indexOf(addChar) !== -1)
     ) {
       var addChar = genCollate();
     }
@@ -76,15 +75,23 @@ function generatePassword() {
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+var copyBtn = document.querySelector("#copy");
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
   var passwordText = document.querySelector("#password");
+  passwordText.textContent = " ";
+  var password = generatePassword();
+  passwordText.textContent = password;
+}
 
-  passwordText.value = password;
-
+function copyPassword() {
+  var passwordText = document.querySelector("#password");
+  passwordText.select();
+  document.execCommand("copy");
+  alert("Your password has been copied to the clipboard.");
 }
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+copyBtn.addEventListener("click", copyPassword);
