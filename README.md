@@ -3,7 +3,7 @@
 [JavaScript: Random Password Generator](https://emmbra.github.io/homeworkWeek3/Develop/index.html)
 
 ## Description
-Created an application that randomly generates a random password based on user selected criteria:
+Created an application that generates a random password based on user selected criteria:
 
 * Length: 8 - 128 characters.
 * Include lowercase characters? a, b, c, etc.
