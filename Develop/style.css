@@ -101,6 +101,14 @@ h2 {
   text-align: center;
 }
 
+.bg {
+  background-image: url(../Assets/Images/abstract-bg.jpg);
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 #password {
   -webkit-appearance: none;
   -moz-appearance: none;
