@@ -46,7 +46,7 @@ function generatePassword() {
     return numbers.charAt(Math.floor(Math.random() * numbers.length));
   }
 
-  //Collating the random selections from random selection functions.
+  //Randomize the character selection functions and collating the random selections from random selection functions.
   function genCollate() {
     var collate = [genLower(), genUpper(), genSpecial(), genNumbers()];
     return collate[Math.floor(Math.random() * 4)];
