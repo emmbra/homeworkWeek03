@@ -1,6 +1,6 @@
 # JavaScript: Random Password Generator
 
-[JavaScript: Random Password Generator](https://emmbra.github.io/homeworkWeek3/Develop/index.html)
+[JavaScript: Random Password Generator](https://emmbra.github.io/homeworkWeek3/)
 
 ## Description
 Created an application that generates a random password based on user selected criteria:
